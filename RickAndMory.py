@@ -35,7 +35,7 @@ def requisicao():
 def salvar_csv(personagens, nome_arquivo="personagens.csv"):
     # Abre um arquivo do tipo CSV
     with open(nome_arquivo, mode="w", newline="", encoding="utf-8") as arquivo:
-        escritor = csv.writer(arquivo)  
+        escritor = csv.writer(arquivo,delimiter=";")  
         # Cria os cabeçalhos
         escritor.writerow(["ID", "Nome", "Status", "Espécie", "Tipo", "Gênero"])
 
@@ -49,8 +49,6 @@ def salvar_csv(personagens, nome_arquivo="personagens.csv"):
                 personagem["type"],
                 personagem["gender"]
             ])
-
-
 
 # "MAIN"
 personagens = requisicao()
